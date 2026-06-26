@@ -1,4 +1,4 @@
-const CACHE_NAME = "zenora-v1-cache";
+const CACHE_NAME = "zenora-v1-cache-002";
 
 const FILES_TO_CACHE = [
   "./",
@@ -6,9 +6,9 @@ const FILES_TO_CACHE = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png",
-  "./assets/icons/maskable-512.png"
+  "./service-worker.js",
+  "./assets/icons/icon.svg",
+  "./sounds/README.md"
 ];
 
 self.addEventListener("install", (event) => {
