@@ -15,13 +15,17 @@
   --gold: #f7d985;
   --danger: #ff6b8a;
   --success: #59f3ae;
+
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
   --radius-sm: 14px;
+
   --nav-height: 78px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --page-bottom-space: calc(var(--nav-height) + var(--safe-bottom) + 76px);
+
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -34,10 +38,12 @@ html {
   min-height: 100%;
   background: var(--bg);
   color: var(--text);
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   overflow-x: hidden;
   background:
@@ -110,13 +116,14 @@ a {
   z-index: 1;
   width: min(100%, 480px);
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
-  padding: 18px 16px calc(var(--nav-height) + var(--safe-bottom) + 22px);
+  padding: 16px 16px var(--page-bottom-space);
 }
 
 .screen {
   display: none;
-  min-height: calc(100vh - var(--nav-height) - 34px);
+  min-height: calc(100dvh - var(--page-bottom-space));
   animation: screenIn 0.28s ease both;
 }
 
@@ -125,7 +132,7 @@ a {
 }
 
 #screen-welcome {
-  padding-bottom: 22px;
+  padding-bottom: 92px;
 }
 
 .glass {
@@ -160,14 +167,14 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 26px 0 18px;
+  padding: 18px 0 14px;
   text-align: center;
 }
 
 .brand-hero h1 {
-  margin: 18px 0 0;
+  margin: 16px 0 0;
   letter-spacing: 0.18em;
-  font-size: clamp(2.55rem, 12vw, 4.2rem);
+  font-size: clamp(2.65rem, 12vw, 4.2rem);
   line-height: 0.95;
   font-weight: 850;
   text-shadow:
@@ -236,8 +243,8 @@ a {
 }
 
 .orb.big {
-  width: 116px;
-  height: 116px;
+  width: 104px;
+  height: 104px;
 }
 
 .orb.tiny {
@@ -254,7 +261,7 @@ a {
 .welcome-card {
   border-radius: var(--radius-xl);
   padding: 24px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .welcome-card h2 {
@@ -280,7 +287,7 @@ a {
 }
 
 .mini-pill {
-  min-height: 118px;
+  min-height: 112px;
   padding: 14px 10px;
   border-radius: 20px;
   background: rgba(255,255,255,0.07);
@@ -596,10 +603,11 @@ a {
 .session-list {
   display: grid;
   gap: 12px;
+  padding-bottom: 22px;
 }
 
 .session-list.large {
-  padding-bottom: 10px;
+  padding-bottom: 118px;
 }
 
 .session-card {
@@ -929,7 +937,7 @@ input[type="range"] {
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: 14px;
   scrollbar-width: none;
 }
 
@@ -1104,14 +1112,14 @@ input[type="range"] {
   position: fixed;
   z-index: 20;
   left: 50%;
-  bottom: max(12px, var(--safe-bottom));
+  bottom: calc(14px + var(--safe-bottom));
   transform: translateX(-50%);
   width: min(calc(100% - 24px), 456px);
   height: var(--nav-height);
   padding: 8px;
   border-radius: 28px;
   background:
-    linear-gradient(145deg, rgba(8, 18, 32, 0.86), rgba(8, 18, 32, 0.58));
+    linear-gradient(145deg, rgba(8, 18, 32, 0.92), rgba(8, 18, 32, 0.68));
   border: 1px solid rgba(255,255,255,0.13);
   display: none;
   grid-template-columns: repeat(5, 1fr);
@@ -1229,10 +1237,37 @@ input[type="range"] {
   }
 }
 
+@media (display-mode: standalone) {
+  :root {
+    --page-bottom-space: calc(var(--nav-height) + var(--safe-bottom) + 34px);
+  }
+
+  .bottom-nav {
+    bottom: calc(10px + var(--safe-bottom));
+  }
+
+  #screen-welcome {
+    padding-bottom: 34px;
+  }
+}
+
 @media (max-width: 380px) {
   .app-shell {
     padding-left: 12px;
     padding-right: 12px;
+  }
+
+  .brand-hero {
+    padding-top: 12px;
+  }
+
+  .brand-hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .orb.big {
+    width: 92px;
+    height: 92px;
   }
 
   .pill-grid.three {
@@ -1266,6 +1301,30 @@ input[type="range"] {
 
   .play-float {
     align-self: flex-end;
+  }
+}
+
+@media (max-height: 760px) {
+  .brand-hero {
+    padding-top: 8px;
+  }
+
+  .orb.big {
+    width: 86px;
+    height: 86px;
+  }
+
+  .brand-hero h1 {
+    margin-top: 12px;
+    font-size: 2.7rem;
+  }
+
+  .welcome-card {
+    padding: 20px;
+  }
+
+  .mini-pill {
+    min-height: 94px;
   }
 }
 
