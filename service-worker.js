@@ -1,4 +1,4 @@
-const CACHE_NAME = "zenora-v1-cache-002";
+const CACHE_NAME = "zenora-v1-1-cache-003";
 
 const FILES_TO_CACHE = [
   "./",
@@ -48,31 +48,27 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request)
+      const fetchPromise = fetch(event.request)
         .then((networkResponse) => {
           if (
-            !networkResponse ||
-            networkResponse.status !== 200 ||
-            networkResponse.type !== "basic"
+            networkResponse &&
+            networkResponse.status === 200 &&
+            networkResponse.type === "basic"
           ) {
-            return networkResponse;
+            const responseToCache = networkResponse.clone();
+
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
           }
-
-          const responseToCache = networkResponse.clone();
-
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
 
           return networkResponse;
         })
         .catch(() => {
-          return caches.match("./index.html");
+          return cachedResponse || caches.match("./index.html");
         });
+
+      return fetchPromise || cachedResponse;
     })
   );
 });
