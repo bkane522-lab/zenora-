@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#081220" />
+  <meta name="description" content="ZENORA — relaxation immersive, respiration, sommeil et sons apaisants." />
+  <title>ZENORA — Immersive Calm</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="cosmos" aria-hidden="true"></div>
+
+  <main class="app-shell" id="app">
+
+    <section class="screen active" id="screen-welcome" data-screen="welcome">
+      <header class="brand-hero">
+        <div class="orb big" aria-hidden="true"><span></span></div>
+        <h1>ZENORA</h1>
+        <p class="tagline">IMMERSIVE CALM</p>
+      </header>
+
+      <div class="welcome-card glass">
+        <h2 data-i18n="welcomeTitle">Bienvenue sur ZENORA</h2>
+        <p data-i18n="welcomeText">
+          Votre espace de calme et de bien-être. Respirez, détendez-vous, dormez mieux et recentrez-vous chaque jour.
+        </p>
+
+        <div class="pill-grid three">
+          <div class="mini-pill">
+            <span class="icon waves"></span>
+            <b data-i18n="breathe">Respirer</b>
+            <small data-i18n="breatheShort">Apaiser l’esprit</small>
+          </div>
+
+          <div class="mini-pill">
+            <span class="icon moon"></span>
+            <b data-i18n="sleep">Dormir</b>
+            <small data-i18n="sleepShort">Mieux dormir</small>
+          </div>
+
+          <div class="mini-pill">
+            <span class="icon lotus"></span>
+            <b data-i18n="meditate">Méditer</b>
+            <small data-i18n="meditateShort">Se recentrer</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="language-line glass">
+        <span>🌐</span>
+        <button class="lang-chip active" data-lang="fr">Français</button>
+        <button class="lang-chip" data-lang="en">English</button>
+        <button class="lang-chip" data-lang="nl">Nederlands</button>
+      </div>
+
+      <button class="primary-action" id="startAppBtn" data-i18n="start">Commencer</button>
+      <button class="ghost-action" id="goLangBtn" data-i18n="chooseLanguage">Choisir ma langue</button>
+    </section>
+
+    <section class="screen" id="screen-home" data-screen="home">
+      <header class="topbar">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="hello">Prends soin de toi.</h2>
+          <p class="muted" data-i18n="eachBreath">Chaque respiration compte.</p>
+        </div>
+
+        <button class="round-btn" data-nav="profile" aria-label="Profil">
+          <div class="orb tiny"><span></span></div>
+        </button>
+      </header>
+
+      <section class="daily-card glass glow-card">
+        <div>
+          <p class="label" data-i18n="recommended">Recommandé pour vous</p>
+          <h3 id="dailyTitle">Sérénité du soir</h3>
+          <p id="dailyMeta">Méditation · 15 min</p>
+        </div>
+        <button class="play-float" data-play="serenite-soir" aria-label="Play">▶</button>
+      </section>
+
+      <section class="quick-grid">
+        <button class="quick-card glass" data-nav="explore">
+          <span class="icon lotus"></span>
+          <b data-i18n="meditation">Méditation</b>
+        </button>
+
+        <button class="quick-card glass" data-nav="sleep">
+          <span class="icon moon"></span>
+          <b data-i18n="sleep">Sommeil</b>
+        </button>
+
+        <button class="quick-card glass" data-nav="breathe">
+          <span class="icon waves"></span>
+          <b data-i18n="breathing">Respiration</b>
+        </button>
+
+        <button class="quick-card glass" data-filter="sounds">
+          <span class="icon equalizer"></span>
+          <b data-i18n="sounds">Sons</b>
+        </button>
+      </section>
+
+      <section class="glass progress-card">
+        <div class="ring" id="homeRing"><span>0%</span></div>
+        <div>
+          <p class="label" data-i18n="todayProgram">Programme du jour</p>
+          <h3 id="todayStatus">Reste présent</h3>
+          <p class="muted"><span id="todayMinutes">0</span> / <span id="goalMinutes">10</span> min</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h3 data-i18n="sessionsForYou">Sessions pour vous</h3>
+          <button data-nav="explore" data-i18n="seeAll">Voir tout</button>
+        </div>
+        <div class="session-list" id="homeSessions"></div>
+      </section>
+    </section>
+
+    <section class="screen" id="screen-explore" data-screen="explore">
+      <header class="topbar compact">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="explore">Explorer</h2>
+          <p class="muted" data-i18n="discoverCalm">Découvrez votre moment de calme.</p>
+        </div>
+
+        <button class="round-btn" data-nav="profile" aria-label="Profil">
+          <div class="orb tiny"><span></span></div>
+        </button>
+      </header>
+
+      <div class="search-row">
+        <label class="search-box glass">
+          <span>⌕</span>
+          <input id="searchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Rechercher une session, un son..." />
+        </label>
+        <button class="square-btn glass" id="clearSearchBtn">✕</button>
+      </div>
+
+      <div class="category-row" id="categoryRow"></div>
+      <div class="session-list large" id="exploreSessions"></div>
+    </section>
+
+    <section class="screen" id="screen-player" data-screen="player">
+      <header class="player-header">
+        <button class="back-btn" data-back>←</button>
+        <h2 id="playerTitle">Calme Profond</h2>
+        <button class="round-btn small" id="favoriteBtn" aria-label="Favori">♡</button>
+      </header>
+
+      <section class="player-art glass">
+        <div class="orb player-orb"><span></span></div>
+      </section>
+
+      <section class="player-controls glass">
+        <div class="time-row">
+          <span id="currentTime">0:00</span>
+          <span id="durationTime">0:00</span>
+        </div>
+
+        <input id="seekBar" type="range" min="0" max="100" value="0" />
+
+        <div class="transport-row">
+          <button id="prevBtn">⏮</button>
+          <button id="mainPlayBtn" class="big-play">▶</button>
+          <button id="nextBtn">⏭</button>
+        </div>
+
+        <div class="tool-row">
+          <button id="volumeBtn">🔊<small data-i18n="volume">Volume</small></button>
+          <button id="downloadHintBtn">⬇<small data-i18n="offline">Hors ligne</small></button>
+          <button id="timerBtn">⏱<small data-i18n="timer">Minuteur</small></button>
+        </div>
+      </section>
+
+      <section class="glass info-card">
+        <p id="playerDescription">Une immersion sonore apaisante.</p>
+        <p class="muted" id="audioHint"></p>
+      </section>
+
+      <audio id="audioPlayer" preload="metadata"></audio>
+    </section>
+
+    <section class="screen" id="screen-breathe" data-screen="breathe">
+      <header class="topbar compact">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="guidedBreathing">Respiration guidée</h2>
+          <p class="muted" data-i18n="takeBreak">Prenez une pause, respirez, recentrez-vous.</p>
+        </div>
+
+        <button class="round-btn" data-nav="profile" aria-label="Profil">
+          <div class="orb tiny"><span></span></div>
+        </button>
+      </header>
+
+      <section class="breath-zone glass">
+        <div class="breath-circle" id="breathCircle">
+          <span id="breathPhase">Inspirez</span>
+          <b id="breathCount">4</b>
+          <small data-i18n="secondsLeft">secondes restantes</small>
+        </div>
+
+        <div class="breath-steps">
+          <span class="active" data-i18n="inhale">Inspirer</span>
+          <span data-i18n="hold">Retenir</span>
+          <span data-i18n="exhale">Expirer</span>
+        </div>
+      </section>
+
+      <section class="exercise-row">
+        <button class="exercise active" data-pattern="4-4-6">4-4-6<small data-i18n="classic">Classique</small></button>
+        <button class="exercise" data-pattern="4-7-8">4-7-8<small data-i18n="relaxing">Relaxant</small></button>
+        <button class="exercise" data-pattern="5-0-5">5-5<small data-i18n="calming">Apaisement</small></button>
+      </section>
+
+      <button class="primary-action" id="breathToggle" data-i18n="startSession">Démarrer</button>
+    </section>
+
+    <section class="screen" id="screen-sleep" data-screen="sleep">
+      <header class="topbar compact">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="sleep">Sommeil</h2>
+          <p class="muted" data-i18n="sleepIntro">Préparez-vous à une nuit paisible et réparatrice.</p>
+        </div>
+
+        <button class="round-btn" data-nav="profile" aria-label="Profil">
+          <div class="orb tiny"><span></span></div>
+        </button>
+      </header>
+
+      <section class="daily-card glass moon-card">
+        <div>
+          <p class="label" data-i18n="featuredSession">Séance à la une</p>
+          <h3 data-i18n="eveningRoutine">Routine du soir</h3>
+          <p>25 min · <span data-i18n="guidedRelaxation">Relaxation guidée</span></p>
+        </div>
+        <button class="play-float" data-play="routine-soir">▶</button>
+      </section>
+
+      <div class="section-title">
+        <h3 data-i18n="sleepSounds">Sons pour dormir</h3>
+        <button data-i18n="seeAll">Voir tout</button>
+      </div>
+
+      <div class="horizontal-cards" id="sleepCards"></div>
+
+      <section class="glass progress-card split">
+        <div>
+          <p class="label" data-i18n="sleepQuality">Qualité du sommeil</p>
+          <h3>—</h3>
+          <p class="muted" data-i18n="comingSoon">Bientôt disponible</p>
+        </div>
+        <button class="ghost-action small" id="sleepTimerBtn" data-i18n="sleepTimer">Minuteur sommeil</button>
+      </section>
+    </section>
+
+    <section class="screen" id="screen-progress" data-screen="progress">
+      <header class="topbar compact">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="yourProgress">Votre progression</h2>
+          <p class="muted" data-i18n="progressIntro">Vous progressez régulièrement. Continuez ainsi.</p>
+        </div>
+
+        <button class="round-btn" data-nav="profile" aria-label="Profil">
+          <div class="orb tiny"><span></span></div>
+        </button>
+      </header>
+
+      <section class="stats-grid">
+        <div class="glass stat">
+          <p data-i18n="calmOfDay">Calme du jour</p>
+          <b id="progressPercent">0%</b>
+          <small data-i18n="reached">Atteint</small>
+        </div>
+
+        <div class="glass stat">
+          <p data-i18n="totalMinutes">Minutes totales</p>
+          <b id="totalMinutes">0</b>
+          <small>min</small>
+        </div>
+
+        <div class="glass stat">
+          <p data-i18n="streak">Série</p>
+          <b id="streakDays">0</b>
+          <small data-i18n="days">jours</small>
+        </div>
+
+        <div class="glass stat">
+          <p data-i18n="favorites">Favoris</p>
+          <b id="favoriteCount">0</b>
+          <small>♡</small>
+        </div>
+      </section>
+
+      <section class="glass chart-card">
+        <div class="section-title">
+          <h3 data-i18n="weekActivity">Activité de la semaine</h3>
+        </div>
+        <div class="bars" id="weekBars"></div>
+      </section>
+
+      <button class="ghost-action" id="resetProgressBtn" data-i18n="resetProgress">Réinitialiser la progression</button>
+    </section>
+
+    <section class="screen" id="screen-profile" data-screen="profile">
+      <header class="topbar compact">
+        <div>
+          <p class="brand-small">ZENORA</p>
+          <h2 data-i18n="profileSettings">Profil & Réglages</h2>
+          <p class="muted" data-i18n="customizeExperience">Personnalisez votre expérience.</p>
+        </div>
+        <div class="orb tiny"><span></span></div>
+      </header>
+
+      <section class="glass settings-card">
+        <div class="setting-line">
+          <span>🌐</span>
+          <b data-i18n="language">Langue</b>
+          <select id="languageSelect">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="nl">Nederlands</option>
+          </select>
+        </div>
+
+        <div class="setting-line">
+          <span>🔔</span>
+          <b data-i18n="notifications">Notifications</b>
+          <input type="checkbox" id="notifToggle" />
+        </div>
+
+        <div class="setting-line">
+          <span>⏰</span>
+          <b data-i18n="reminders">Rappels</b>
+          <input type="checkbox" id="reminderToggle" checked />
+        </div>
+
+        <div class="setting-line">
+          <span>⬇</span>
+          <b data-i18n="offlineDownloads">Téléchargement hors ligne</b>
+          <em data-i18n="premiumLater">Premium plus tard</em>
+        </div>
+      </section>
+
+      <section class="glass settings-card">
+        <h3 data-i18n="ownSounds">Vos sons</h3>
+        <p class="muted" data-i18n="ownSoundsText">
+          Ajoutez vos fichiers MP3 dans le dossier /sounds puis modifiez les chemins dans app.js.
+        </p>
+        <button class="primary-action compact" id="showSoundPathsBtn" data-i18n="showSoundPaths">Voir les fichiers attendus</button>
+      </section>
+
+      <section class="glass settings-card safe-zone">
+        <h3 data-i18n="privacySecurity">Confidentialité & sécurité</h3>
+        <p data-i18n="privacyText">
+          Cette V1 garde vos données localement sur votre appareil avec localStorage. Aucun compte, aucun serveur, aucune donnée vendue.
+        </p>
+      </section>
+
+      <p class="version">Version 1.0.0 · ZENORA MVP</p>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navigation principale">
+      <button class="active" data-nav="home">
+        <span>⌂</span>
+        <small data-i18n="home">Accueil</small>
+      </button>
+
+      <button data-nav="explore">
+        <span>◈</span>
+        <small data-i18n="explore">Explorer</small>
+      </button>
+
+      <button data-nav="breathe">
+        <span>◎</span>
+        <small data-i18n="breathe">Respirer</small>
+      </button>
+
+      <button data-nav="sleep">
+        <span>☾</span>
+        <small data-i18n="sleep">Sommeil</small>
+      </button>
+
+      <button data-nav="progress">
+        <span>◌</span>
+        <small data-i18n="progress">Progrès</small>
+      </button>
+    </nav>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
