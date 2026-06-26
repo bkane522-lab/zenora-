@@ -1,0 +1,39 @@
+{
+  "name": "ZENORA - Immersive Calm",
+  "short_name": "ZENORA",
+  "description": "Application de relaxation immersive avec sons apaisants, respiration guidée, sommeil et bien-être.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050913",
+  "theme_color": "#081220",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": [
+    "health",
+    "lifestyle",
+    "music",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
