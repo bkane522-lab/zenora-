@@ -1,0 +1,62 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#123B66"/>
+      <stop offset="45%" stop-color="#081A33"/>
+      <stop offset="100%" stop-color="#050913"/>
+    </radialGradient>
+
+    <radialGradient id="orb" cx="35%" cy="25%" r="70%">
+      <stop offset="0%" stop-color="#EFFFFF"/>
+      <stop offset="20%" stop-color="#2EF6D6"/>
+      <stop offset="52%" stop-color="#00D4FF"/>
+      <stop offset="82%" stop-color="#6A3DFF"/>
+      <stop offset="100%" stop-color="#1A103A"/>
+    </radialGradient>
+
+    <linearGradient id="wave" x1="80" y1="256" x2="432" y2="256">
+      <stop offset="0%" stop-color="#2EF6D6"/>
+      <stop offset="50%" stop-color="#EFFFFF"/>
+      <stop offset="100%" stop-color="#6A3DFF"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <circle cx="256" cy="256" r="142" fill="url(#orb)" opacity="0.96" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="146" fill="none" stroke="#2EF6D6" stroke-width="3" opacity="0.85"/>
+  <circle cx="256" cy="256" r="174" fill="none" stroke="#6A3DFF" stroke-width="2" opacity="0.38"/>
+
+  <path d="M78 260 C110 260 112 235 141 235 C173 235 171 302 201 302 C231 302 224 198 256 198 C288 198 281 302 311 302 C341 302 339 235 371 235 C400 235 402 260 434 260"
+        fill="none"
+        stroke="url(#wave)"
+        stroke-width="18"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+
+  <path d="M112 354 C170 396 342 396 400 354 C346 424 166 424 112 354Z"
+        fill="#2EF6D6"
+        opacity="0.20"/>
+
+  <path d="M122 342 C180 384 332 384 390 342"
+        fill="none"
+        stroke="#2EF6D6"
+        stroke-width="10"
+        stroke-linecap="round"
+        opacity="0.55"
+        filter="url(#glow)"/>
+
+  <circle cx="120" cy="100" r="3" fill="#EFFFFF" opacity="0.9"/>
+  <circle cx="392" cy="116" r="4" fill="#EFFFFF" opacity="0.85"/>
+  <circle cx="420" cy="390" r="3" fill="#2EF6D6" opacity="0.9"/>
+  <circle cx="92" cy="392" r="3" fill="#6A3DFF" opacity="0.9"/>
+</svg>
