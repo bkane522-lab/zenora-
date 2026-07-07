@@ -1,51 +1,50 @@
-# ZENORA — Immersive Calm
+# ZENORA — Immersive Calm V2
 
-ZENORA est une application de relaxation immersive pensée pour le calme, la respiration, le sommeil et l’apaisement.
+Version complète du projet ZENORA, basée sur la première app déjà commencée et améliorée pour être plus premium, plus mobile et plus cohérente.
 
-Cette version est une **V1 MVP gratuite** sous forme de PWA.
+## Ce qui change dans la V2
 
-## Objectif du projet
+- Langue corrigée : l'app démarre en français par défaut avec traduction complète FR / EN / NL.
+- Nouveau stockage `zenora.state.v2` pour éviter que l'ancienne version reste bloquée en anglais dans le navigateur.
+- Design plus compact : moins de scroll, cartes plus basses, navigation fixe mieux espacée.
+- Nouveau module **Météo intérieure** : l'utilisateur choisit son état du moment et ZENORA recommande une session adaptée.
+- Nouveau module **AuraLab** : ambiance générative immédiate sans fichier MP3.
+- Sons génératifs WebAudio : l'app fonctionne même sans fichiers audio externes.
+- Minuteur sommeil avec fondu progressif.
+- Respiration guidée 4-4-6, 4-7-8, 5-5 + mode calme immédiat 60 secondes.
+- Progression locale, favoris, série et activité hebdomadaire.
+- Icônes PWA recréées.
+- Service worker mis à jour pour éviter le cache de la V1.
 
-Créer une vraie application de bien-être avec :
+## Fichiers inclus
 
-- sons de relaxation personnels
-- respiration guidée
-- espace sommeil
-- favoris
-- progression locale
-- interface immersive futuriste
-- plusieurs langues
-- installation possible sur téléphone
+- `index.html` : structure complète de l'application
+- `style.css` : design mobile premium sombre, glassmorphism, aurora, orb animé
+- `script.js` : navigation, traduction, audio génératif, respiration, progression, minuteur
+- `manifest.webmanifest` : installation PWA Android/iOS
+- `sw.js` : cache hors-ligne
+- `icons/` : icônes PWA 192 et 512 px
+- `audio/` : dossier prévu pour ajouter de vrais MP3 plus tard
 
-## Direction visuelle
+## Déploiement sur Vercel ou GitHub Pages
 
-- Nom : ZENORA
-- Slogan : Immersive Calm
-- Style : futuriste, calme, premium
-- Couleurs : noir profond, turquoise, bleu, violet
-- Univers : orbe lumineux, onde sonore, étoiles, relaxation immersive
+Envoyez tous les fichiers à la racine du projet, puis redéployez.
 
-## Fonctionnalités V1
+Après déploiement, si l'ancienne version reste affichée sur Android :
+1. Ouvrir le site dans Chrome.
+2. Aller dans les paramètres du site.
+3. Effacer les données du site.
+4. Recharger.
 
-- Accueil ZENORA
-- Lecteur audio
-- Sessions de méditation
-- Sons pour dormir
-- Respiration guidée
-- Favoris
-- Suivi de progression
-- Langues :
-  - Français
-  - English
-  - Nederlands
-- Données locales avec localStorage
-- Aucun compte utilisateur
-- Aucune API payante
-- Aucune donnée vendue
+La V2 utilise un nouveau cache, mais Android peut parfois garder une ancienne PWA installée.
 
-## Sons à ajouter
+## Ajouter vos sons MP3 plus tard
 
-Les fichiers audio doivent être ajoutés dans un dossier nommé :
+Cette version fonctionne sans MP3 grâce à WebAudio. Pour utiliser vos propres sons :
+1. Ajoutez vos fichiers dans `audio/`.
+2. Ajoutez une propriété `src: "audio/nom-du-son.mp3"` dans les objets `tracks` dans `script.js`.
+3. Remplacez ou adaptez le moteur audio selon vos fichiers.
 
-```txt
-sounds
+## Note importante
+
+ZENORA est une app de bien-être et de relaxation. Elle ne remplace pas un professionnel de santé ni un service d'urgence.

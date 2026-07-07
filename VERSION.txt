@@ -1,0 +1,4 @@
+ZENORA Immersive Calm V2
+Date: 2026-07-07
+Base: projet ZENORA existant amélioré
+Objectif: plus compact, plus innovant, français par défaut, audio génératif, mood recommandation, AuraLab.
