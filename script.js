@@ -9,7 +9,7 @@ const Zenora = (() => {
     dailySeconds: {},
     streak: 0,
     volume: 0.7,
-    currentTrackId: "aurora-soir"
+    currentTrackId: "halodoux"
   };
 
   const I18N = {
@@ -70,6 +70,7 @@ const Zenora = (() => {
   };
 
   const tracks = [
+    { id: "halodoux", title: { fr: "Halo doux", en: "Soft halo", nl: "Zachte halo" }, duration: "6:04", category: "sounds", icon: "◉", mood: "calm", sound: "mp3", src: "audio/halodouxremastered.mp3" },
     { id: "aurora-soir", title: { fr: "Sérénité du soir", en: "Evening serenity", nl: "Avondsereniteit" }, duration: 45, category: "meditation", icon: "✦", mood: "calm", sound: "aurora", layers: { base: 146.83, second: 220, filter: 820, noise: 0.045, shimmer: 0.018 } },
     { id: "calme-profond", title: { fr: "Calme profond", en: "Deep calm", nl: "Diepe rust" }, duration: 40, category: "meditation", icon: "◎", mood: "heavy", sound: "deep", layers: { base: 110, second: 165, filter: 620, noise: 0.035, shimmer: 0.012 } },
     { id: "respiration-4-6", title: { fr: "Respiration 4-6", en: "Breathing 4-6", nl: "Ademhaling 4-6" }, duration: 12, category: "breathe", icon: "≋", mood: "anxious", sound: "breath", layers: { base: 174.61, second: 261.63, filter: 540, noise: 0.055, shimmer: 0.006 } },
@@ -119,7 +120,8 @@ const Zenora = (() => {
   }
 
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
-  function minutesLabel(track) { return `${track.duration} ${t("minutes")} · ${categoryLabel(track.category)}`; }
+  function durationLabel(track) { return typeof track.duration === "string" ? track.duration : `${track.duration} ${t("minutes")}`; }
+  function minutesLabel(track) { return `${durationLabel(track)} · ${categoryLabel(track.category)}`; }
 
   function init() {
     installServiceWorker();
@@ -256,7 +258,7 @@ const Zenora = (() => {
     const recommended = tracks.find(track => track.mood === state.mood) || tracks[0];
     $("#recommendedCard").dataset.playTrack = recommended.id;
     $("#recommendedTitle").textContent = titleOf(recommended);
-    $("#recommendedMeta").textContent = `${categoryLabel(recommended.category)} · ${recommended.duration} ${t("minutes")}`;
+    $("#recommendedMeta").textContent = `${categoryLabel(recommended.category)} · ${durationLabel(recommended)}`;
   }
 
   function setCategory(category) {
@@ -301,7 +303,7 @@ const Zenora = (() => {
     container.innerHTML = sleepTracks.map(track => `
       <button class="sound-tile glass-card" data-track-id="${track.id}">
         <div class="track-art" aria-hidden="true">${track.icon}</div>
-        <div><strong>${titleOf(track)}</strong><small>${track.duration} ${t("minutes")}</small></div>
+        <div><strong>${titleOf(track)}</strong><small>${durationLabel(track)}</small></div>
       </button>
     `).join("");
     bindTrackButtons(container);
@@ -418,11 +420,20 @@ const Zenora = (() => {
     let nodes = [];
     let currentTrack = null;
     let playing = false;
+    let mediaEl = null;
 
     function resume() { return ctx.state === "suspended" ? ctx.resume() : Promise.resolve(); }
     function setVolume(value) { master.gain.setTargetAtTime(value, ctx.currentTime, 0.08); }
 
     function stopNodes() {
+      if (mediaEl) {
+        try {
+          mediaEl.pause();
+          mediaEl.removeAttribute("src");
+          mediaEl.load();
+        } catch (_) {}
+        mediaEl = null;
+      }
       nodes.forEach(node => {
         try {
           if (node.stop) node.stop(ctx.currentTime + 0.08);
@@ -461,6 +472,31 @@ const Zenora = (() => {
     }
 
     function buildTrack(track) {
+      if (track.src) {
+        const sourceOut = ctx.createGain();
+        sourceOut.gain.value = 0.0001;
+        sourceOut.connect(master);
+        sourceOut.gain.exponentialRampToValueAtTime(0.95, ctx.currentTime + 2.2);
+
+        mediaEl = new Audio(track.src);
+        mediaEl.preload = "auto";
+        mediaEl.loop = Boolean(track.loop);
+        mediaEl.addEventListener("ended", () => {
+          playing = false;
+          stopProgressTicker();
+          updatePlayerButtons(false);
+        }, { once: true });
+
+        const mediaSource = ctx.createMediaElementSource(mediaEl);
+        mediaSource.connect(sourceOut);
+        nodes.push(mediaSource, sourceOut);
+        mediaEl.play().catch(() => {
+          playing = false;
+          updatePlayerButtons(false);
+        });
+        return;
+      }
+
       const cfg = track.layers;
       const baseOut = ctx.createGain();
       baseOut.gain.value = 0.0001;

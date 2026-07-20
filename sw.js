@@ -1,4 +1,4 @@
-const CACHE_NAME = "zenora-immersive-calm-v2-20260707";
+const CACHE_NAME = "zenora-immersive-calm-v21-halo-20260720";
 const APP_ASSETS = [
   "./",
   "./index.html",
@@ -6,7 +6,8 @@ const APP_ASSETS = [
   "./script.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./audio/halodouxremastered.mp3"
 ];
 
 self.addEventListener("install", event => {

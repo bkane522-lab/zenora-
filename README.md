@@ -48,3 +48,11 @@ Cette version fonctionne sans MP3 grâce à WebAudio. Pour utiliser vos propres 
 ## Note importante
 
 ZENORA est une app de bien-être et de relaxation. Elle ne remplace pas un professionnel de santé ni un service d'urgence.
+
+
+## Audio ajouté
+- `audio/halodouxremastered.mp3`
+- piste intégrée : Halo doux
+- durée détectée du fichier : environ 6:04
+
+Après déploiement, si l’ancienne app apparaît encore, vider le cache/la PWA sur le téléphone.
