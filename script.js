@@ -71,6 +71,12 @@ const Zenora = (() => {
 
   const tracks = [
     { id: "halodoux", title: { fr: "Halo doux", en: "Soft halo", nl: "Zachte halo" }, duration: "6:04", category: "sounds", icon: "◉", mood: "calm", sound: "mp3", src: "audio/halodouxremastered.mp3" },
+
+    { id: "hypnosezen", title: { fr: "Hypnose zen", en: "Zen hypnosis", nl: "Zen hypnose" }, duration: "5:54", category: "sounds", icon: "◌", mood: "calm", sound: "mp3", src: "audio/hypnosezenremastered.mp3" },
+    { id: "flutehypnotique", title: { fr: "Flûte hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" }, duration: "7:34", category: "sounds", icon: "≋", mood: "calm", sound: "mp3", src: "audio/flutehypnotique.mp3" },
+    { id: "echointerieur", title: { fr: "Écho intérieur", en: "Inner echo", nl: "Innerlijke echo" }, duration: "10:50", category: "sounds", icon: "◎", mood: "calm", sound: "mp3", src: "audio/echointerieur.mp3" },
+    { id: "souffledhypnose", title: { fr: "Souffle d’hypnose", en: "Hypnotic breath", nl: "Hypnotische adem" }, duration: "11:42", category: "sounds", icon: "✦", mood: "calm", sound: "mp3", src: "audio/souffledhypnose.mp3" },
+
     { id: "aurora-soir", title: { fr: "Sérénité du soir", en: "Evening serenity", nl: "Avondsereniteit" }, duration: 45, category: "meditation", icon: "✦", mood: "calm", sound: "aurora", layers: { base: 146.83, second: 220, filter: 820, noise: 0.045, shimmer: 0.018 } },
     { id: "calme-profond", title: { fr: "Calme profond", en: "Deep calm", nl: "Diepe rust" }, duration: 40, category: "meditation", icon: "◎", mood: "heavy", sound: "deep", layers: { base: 110, second: 165, filter: 620, noise: 0.035, shimmer: 0.012 } },
     { id: "respiration-4-6", title: { fr: "Respiration 4-6", en: "Breathing 4-6", nl: "Ademhaling 4-6" }, duration: 12, category: "breathe", icon: "≋", mood: "anxious", sound: "breath", layers: { base: 174.61, second: 261.63, filter: 540, noise: 0.055, shimmer: 0.006 } },
