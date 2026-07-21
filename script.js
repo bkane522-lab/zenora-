@@ -92,18 +92,16 @@ const Zenora = (() => {
       src: "audio/hypnosezenremastered.mp3",
       srcs: ["audio/hypnosezenremastered.mp3", "audio/hypnose zen remastered.mp3", "audio/Hypnose zen (Remastered).mp3"]
     },
-    {
-      id: "flutehypnotique",
-      title: { fr: "Flute hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" },
-      duration: "7:34",
-      category: "sounds",
-      icon: "≋",
-      mood: "calm",
-      sound: "mp3",
-      src: "audio/flutehypnotique.mp3",
-      srcs: ["audio/flutehypnotique.mp3", "audio/Flûtehypnotique.mp3", "audio/flûtehypnotique.mp3", "audio/Flutehypnotique.mp3", "audio/flute hypnotique.mp3"]
-    },
-    {
+{
+  id: "flutehypnose",
+  title: { fr: "Flûte hypnose", en: "Hypnotic flute", nl: "Hypnotische fluit" },
+  duration: "7:34",
+  category: "sounds",
+  icon: "≋",
+  mood: "calm",
+  sound: "mp3",
+  src: "audio/flutehypnose.mp3"
+}
       id: "echointerieur",
       title: { fr: "Écho intérieur", en: "Inner echo", nl: "Innerlijke echo" },
       duration: "10:50",
