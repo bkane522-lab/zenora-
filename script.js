@@ -70,24 +70,92 @@ const Zenora = (() => {
   };
 
   const tracks = [
-    { id: "halodoux", title: { fr: "Halo doux", en: "Soft halo", nl: "Zachte halo" }, duration: "6:04", category: "sounds", icon: "◉", mood: "calm", sound: "mp3", src: "audio/halodouxremastered.mp3" },
+    {
+      id: "halodoux",
+      title: { fr: "Halo doux", en: "Soft halo", nl: "Zachte halo" },
+      duration: "6:04",
+      category: "sleep",
+      icon: "◉",
+      mood: "tired",
+      sound: "mp3",
+      src: "audio/halodouxremastered.mp3",
+      srcs: ["audio/halodouxremastered.mp3", "audio/Halo doux (Remastered).mp3"]
+    },
+    {
+      id: "hypnosezen",
+      title: { fr: "Hypnose zen", en: "Zen hypnosis", nl: "Zen hypnose" },
+      duration: "5:54",
+      category: "sounds",
+      icon: "◌",
+      mood: "calm",
+      sound: "mp3",
+      src: "audio/hypnosezenremastered.mp3",
+      srcs: ["audio/hypnosezenremastered.mp3", "audio/hypnose zen remastered.mp3", "audio/Hypnose zen (Remastered).mp3"]
+    },
+    {
+      id: "flutehypnotique",
+      title: { fr: "Flûte hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" },
+      duration: "7:34",
+      category: "sounds",
+      icon: "≋",
+      mood: "calm",
+      sound: "mp3",
+      src: "audio/flutehypnotique.mp3",
+      srcs: ["audio/flutehypnotique.mp3", "audio/Flûtehypnotique.mp3", "audio/flûtehypnotique.mp3", "audio/Flutehypnotique.mp3", "audio/flute hypnotique.mp3"]
+    },
+    {
+      id: "echointerieur",
+      title: { fr: "Écho intérieur", en: "Inner echo", nl: "Innerlijke echo" },
+      duration: "10:50",
+      category: "meditation",
+      icon: "◎",
+      mood: "heavy",
+      sound: "mp3",
+      src: "audio/echointerieur.mp3",
+      srcs: ["audio/echointerieur.mp3", "audio/Échointérieur.mp3", "audio/échointerieur.mp3", "audio/echo interieur.mp3"]
+    },
+    {
+      id: "souffledhypnose",
+      title: { fr: "Souffle d’hypnose", en: "Hypnotic breath", nl: "Hypnotische adem" },
+      duration: "11:42",
+      category: "sleep",
+      icon: "✦",
+      mood: "anxious",
+      sound: "mp3",
+      src: "audio/souffledhypnose.mp3",
+      srcs: ["audio/souffledhypnose.mp3", "audio/Souffled’hypnose.mp3", "audio/Souffle d’hypnose.mp3", "audio/souffle dhypnose.mp3"]
+    },
 
-    { id: "hypnosezen", title: { fr: "Hypnose zen", en: "Zen hypnosis", nl: "Zen hypnose" }, duration: "5:54", category: "sounds", icon: "◌", mood: "calm", sound: "mp3", src: "audio/hypnosezenremastered.mp3" },
-    { id: "flutehypnotique", title: { fr: "Flûte hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" }, duration: "7:34", category: "sounds", icon: "≋", mood: "calm", sound: "mp3", src: "audio/flutehypnotique.mp3" },
-    { id: "echointerieur", title: { fr: "Écho intérieur", en: "Inner echo", nl: "Innerlijke echo" }, duration: "10:50", category: "sounds", icon: "◎", mood: "calm", sound: "mp3", src: "audio/echointerieur.mp3" },
-    { id: "souffledhypnose", title: { fr: "Souffle d’hypnose", en: "Hypnotic breath", nl: "Hypnotische adem" }, duration: "11:42", category: "sounds", icon: "✦", mood: "calm", sound: "mp3", src: "audio/souffledhypnose.mp3" },
-
-    { id: "aurora-soir", title: { fr: "Sérénité du soir", en: "Evening serenity", nl: "Avondsereniteit" }, duration: 45, category: "meditation", icon: "✦", mood: "calm", sound: "aurora", layers: { base: 146.83, second: 220, filter: 820, noise: 0.045, shimmer: 0.018 } },
-    { id: "calme-profond", title: { fr: "Calme profond", en: "Deep calm", nl: "Diepe rust" }, duration: 40, category: "meditation", icon: "◎", mood: "heavy", sound: "deep", layers: { base: 110, second: 165, filter: 620, noise: 0.035, shimmer: 0.012 } },
-    { id: "respiration-4-6", title: { fr: "Respiration 4-6", en: "Breathing 4-6", nl: "Ademhaling 4-6" }, duration: 12, category: "breathe", icon: "≋", mood: "anxious", sound: "breath", layers: { base: 174.61, second: 261.63, filter: 540, noise: 0.055, shimmer: 0.006 } },
-    { id: "nuit-cocon", title: { fr: "Cocon nocturne", en: "Night cocoon", nl: "Nachtcocon" }, duration: 60, category: "sleep", icon: "☾", mood: "tired", sound: "sleep", layers: { base: 98, second: 146.83, filter: 420, noise: 0.05, shimmer: 0.01 } },
-    { id: "pluie-douce", title: { fr: "Pluie douce", en: "Soft rain", nl: "Zachte regen" }, duration: 50, category: "sleep", icon: "☔", mood: "tired", sound: "rain", layers: { base: 130.81, second: 196, filter: 1100, noise: 0.105, shimmer: 0.012 } },
-    { id: "ocean-profond", title: { fr: "Océan profond", en: "Deep ocean", nl: "Diepe oceaan" }, duration: 55, category: "sleep", icon: "≈", mood: "heavy", sound: "ocean", layers: { base: 87.31, second: 130.81, filter: 360, noise: 0.088, shimmer: 0.006 } },
-    { id: "focus-doux", title: { fr: "Focus doux", en: "Soft focus", nl: "Zachte focus" }, duration: 35, category: "focus", icon: "◌", mood: "calm", sound: "focus", layers: { base: 196, second: 293.66, filter: 900, noise: 0.028, shimmer: 0.022 } },
-    { id: "foret-nocturne", title: { fr: "Forêt nocturne", en: "Night forest", nl: "Nachtbos" }, duration: 48, category: "sounds", icon: "🌙", mood: "tired", sound: "forest", layers: { base: 123.47, second: 185, filter: 720, noise: 0.072, shimmer: 0.018 } },
-    { id: "lumiere-lente", title: { fr: "Lumière lente", en: "Slow light", nl: "Traag licht" }, duration: 30, category: "meditation", icon: "◇", mood: "calm", sound: "light", layers: { base: 155.56, second: 233.08, filter: 980, noise: 0.026, shimmer: 0.026 } },
-    { id: "anti-angoisse", title: { fr: "Ancre apaisante", en: "Soothing anchor", nl: "Kalmerend anker" }, duration: 20, category: "breathe", icon: "♡", mood: "anxious", sound: "anchor", layers: { base: 116.54, second: 174.61, filter: 520, noise: 0.048, shimmer: 0.007 } },
-    { id: "auralab", title: { fr: "AuraLab immersif", en: "Immersive AuraLab", nl: "Immersieve AuraLab" }, duration: 90, category: "sounds", icon: "⬢", mood: "calm", sound: "auralab", layers: { base: 103.83, second: 207.65, filter: 760, noise: 0.066, shimmer: 0.032 } }
+    {
+      id: "respiration-4-6",
+      title: { fr: "Respiration 4-6", en: "Breathing 4-6", nl: "Ademhaling 4-6" },
+      duration: 8,
+      category: "breathe",
+      icon: "≋",
+      mood: "calm",
+      sound: "softgen",
+      layers: { base: 96, second: 144, filter: 380, noise: 0.018, shimmer: 0 }
+    },
+    {
+      id: "focus-doux",
+      title: { fr: "Focus doux", en: "Soft focus", nl: "Zachte focus" },
+      duration: 12,
+      category: "focus",
+      icon: "◇",
+      mood: "calm",
+      sound: "softgen",
+      layers: { base: 110, second: 165, filter: 440, noise: 0.014, shimmer: 0 }
+    },
+    {
+      id: "auralab",
+      title: { fr: "AuraLab doux", en: "Soft AuraLab", nl: "Zachte AuraLab" },
+      duration: 15,
+      category: "sounds",
+      icon: "⬢",
+      mood: "calm",
+      sound: "softgen",
+      layers: { base: 82, second: 123, filter: 320, noise: 0.016, shimmer: 0 }
+    }
   ];
 
   let state = loadState();
@@ -238,7 +306,12 @@ const Zenora = (() => {
     $$('[data-i18n]').forEach(node => { node.textContent = t(node.dataset.i18n); });
     $$('[data-i18n-placeholder]').forEach(node => { node.placeholder = t(node.dataset.i18nPlaceholder); });
     $$(".lang-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.lang === state.lang));
-    $("#sleepFeatureTitle").textContent = titleOf(tracks.find(track => track.id === "nuit-cocon"));
+
+    const sleepFeatured = tracks.find(track => track.id === "souffledhypnose") || tracks.find(track => track.category === "sleep") || tracks[0];
+    if ($("#sleepFeatureTitle")) $("#sleepFeatureTitle").textContent = titleOf(sleepFeatured);
+    const sleepFeatureButton = $(".sleep-feature");
+    if (sleepFeatureButton) sleepFeatureButton.dataset.playTrack = sleepFeatured.id;
+
     $("#timerStatus").textContent = sleepTimerMinutes ? `${sleepTimerMinutes} ${t("minutes")}` : t("timerOff");
     setBreathDisplay(currentBreathPhaseKey() || "inhale", breath.remaining || getPattern(breath.patternName)[0].seconds);
   }
@@ -427,9 +500,16 @@ const Zenora = (() => {
     let currentTrack = null;
     let playing = false;
     let mediaEl = null;
+    let sourceOut = null;
 
     function resume() { return ctx.state === "suspended" ? ctx.resume() : Promise.resolve(); }
     function setVolume(value) { master.gain.setTargetAtTime(value, ctx.currentTime, 0.08); }
+
+    function getSources(track) {
+      if (!track) return [];
+      if (Array.isArray(track.srcs) && track.srcs.length) return track.srcs;
+      return track.src ? [track.src] : [];
+    }
 
     function stopNodes() {
       if (mediaEl) {
@@ -442,27 +522,89 @@ const Zenora = (() => {
       }
       nodes.forEach(node => {
         try {
-          if (node.stop) node.stop(ctx.currentTime + 0.08);
-          if (node.disconnect) setTimeout(() => { try { node.disconnect(); } catch (_) {} }, 160);
+          if (node.stop) node.stop(ctx.currentTime + 0.05);
+          if (node.disconnect) setTimeout(() => { try { node.disconnect(); } catch (_) {} }, 140);
         } catch (_) {}
       });
       nodes = [];
+      sourceOut = null;
     }
 
     function setTrack(track) {
       currentTrack = track;
-      if (playing) { stopNodes(); buildTrack(track); }
+      if (playing) {
+        stopNodes();
+        buildTrack(track);
+      }
+    }
+
+    function buildMediaTrack(track) {
+      const sources = getSources(track);
+      if (!sources.length) return false;
+
+      sourceOut = ctx.createGain();
+      sourceOut.gain.value = 0.0001;
+      sourceOut.connect(master);
+      sourceOut.gain.exponentialRampToValueAtTime(0.92, ctx.currentTime + 1.4);
+      nodes.push(sourceOut);
+
+      let sourceIndex = 0;
+
+      const trySource = () => {
+        if (!playing) return;
+        if (mediaEl) {
+          try { mediaEl.pause(); mediaEl.removeAttribute("src"); mediaEl.load(); } catch (_) {}
+          mediaEl = null;
+        }
+
+        mediaEl = new Audio(sources[sourceIndex]);
+        mediaEl.preload = "auto";
+        mediaEl.loop = Boolean(track.loop);
+        mediaEl.volume = 1;
+
+        const mediaSource = ctx.createMediaElementSource(mediaEl);
+        mediaSource.connect(sourceOut);
+        nodes.push(mediaSource);
+
+        mediaEl.addEventListener("ended", () => {
+          playing = false;
+          stopProgressTicker();
+          updatePlayerButtons(false);
+        }, { once: true });
+
+        mediaEl.addEventListener("error", () => {
+          sourceIndex += 1;
+          if (sourceIndex < sources.length) {
+            trySource();
+          } else {
+            playing = false;
+            stopProgressTicker();
+            updatePlayerButtons(false);
+            console.warn("Audio introuvable :", track.id, sources);
+            alert(`Le fichier audio de « ${titleOf(track)} » est introuvable. Vérifie le nom exact dans le dossier audio.`);
+          }
+        }, { once: true });
+
+        mediaEl.play().catch(() => {
+          playing = false;
+          stopProgressTicker();
+          updatePlayerButtons(false);
+        });
+      };
+
+      trySource();
+      return true;
     }
 
     function makeNoiseBuffer() {
-      const length = ctx.sampleRate * 4;
+      const length = ctx.sampleRate * 3;
       const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
       const data = buffer.getChannelData(0);
       let last = 0;
       for (let i = 0; i < length; i++) {
         const white = Math.random() * 2 - 1;
-        last = (last + 0.025 * white) / 1.025;
-        data[i] = last * 3.3;
+        last = (last + 0.018 * white) / 1.018;
+        data[i] = last * 0.55;
       }
       return buffer;
     }
@@ -477,99 +619,63 @@ const Zenora = (() => {
       nodes.push(osc, gain);
     }
 
-    function buildTrack(track) {
-      if (track.src) {
-        const sourceOut = ctx.createGain();
-        sourceOut.gain.value = 0.0001;
-        sourceOut.connect(master);
-        sourceOut.gain.exponentialRampToValueAtTime(0.95, ctx.currentTime + 2.2);
-
-        mediaEl = new Audio(track.src);
-        mediaEl.preload = "auto";
-        mediaEl.loop = Boolean(track.loop);
-        mediaEl.addEventListener("ended", () => {
-          playing = false;
-          stopProgressTicker();
-          updatePlayerButtons(false);
-        }, { once: true });
-
-        const mediaSource = ctx.createMediaElementSource(mediaEl);
-        mediaSource.connect(sourceOut);
-        nodes.push(mediaSource, sourceOut);
-        mediaEl.play().catch(() => {
-          playing = false;
-          updatePlayerButtons(false);
-        });
-        return;
-      }
-
-      const cfg = track.layers;
+    function buildGeneratedTrack(track) {
+      const cfg = track.layers || { base: 82, second: 123, filter: 320, noise: 0.012, shimmer: 0 };
       const baseOut = ctx.createGain();
       baseOut.gain.value = 0.0001;
       baseOut.connect(master);
-      baseOut.gain.exponentialRampToValueAtTime(0.68, ctx.currentTime + 2.8);
+      baseOut.gain.exponentialRampToValueAtTime(0.32, ctx.currentTime + 2.4);
       nodes.push(baseOut);
 
-      const freqs = [cfg.base, cfg.second, cfg.base * 2.01, cfg.second * 0.5];
+      const freqs = [cfg.base, cfg.second, cfg.base * 0.5];
       freqs.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
+        const filter = ctx.createBiquadFilter();
         const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-        osc.type = idx < 2 ? "sine" : "triangle";
-        osc.frequency.value = freq;
-        gain.gain.value = idx < 2 ? 0.04 : 0.011;
-        osc.detune.value = (idx - 1.5) * 3.4;
+
+        osc.type = "sine";
+        osc.frequency.value = Math.min(freq, 180);
+        filter.type = "lowpass";
+        filter.frequency.value = 360;
+        filter.Q.value = 0.35;
+        gain.gain.value = idx === 0 ? 0.022 : 0.009;
+        osc.detune.value = (idx - 1) * 2;
+
         if (pan) {
-          pan.pan.value = idx % 2 ? 0.26 : -0.26;
-          osc.connect(gain).connect(pan).connect(baseOut);
-          slowLfo(pan.pan, idx % 2 ? -0.18 : 0.18, 19 + idx * 4, idx * .2);
+          pan.pan.value = idx % 2 ? 0.18 : -0.18;
+          osc.connect(filter).connect(gain).connect(pan).connect(baseOut);
+          slowLfo(pan.pan, idx % 2 ? -0.08 : 0.08, 24 + idx * 8, idx * 0.25);
           nodes.push(pan);
         } else {
-          osc.connect(gain).connect(baseOut);
+          osc.connect(filter).connect(gain).connect(baseOut);
         }
-        slowLfo(osc.frequency, freq * 0.002, 17 + idx * 5, idx * .2);
+
         osc.start();
-        nodes.push(osc, gain);
+        nodes.push(osc, gain, filter);
       });
 
       const noise = ctx.createBufferSource();
       noise.buffer = makeNoiseBuffer();
       noise.loop = true;
       const filter = ctx.createBiquadFilter();
-      filter.type = track.sound === "rain" ? "highpass" : "lowpass";
-      filter.frequency.value = cfg.filter;
-      filter.Q.value = track.sound === "ocean" ? 0.45 : 0.75;
+      filter.type = "lowpass";
+      filter.frequency.value = Math.min(cfg.filter || 320, 420);
+      filter.Q.value = 0.3;
       const noiseGain = ctx.createGain();
-      noiseGain.gain.value = cfg.noise;
-      const noisePan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-      if (noisePan) {
-        noisePan.pan.value = 0;
-        noise.connect(filter).connect(noiseGain).connect(noisePan).connect(baseOut);
-        slowLfo(noisePan.pan, 0.34, track.sound === "ocean" ? 13 : 23);
-        nodes.push(noisePan);
-      } else {
-        noise.connect(filter).connect(noiseGain).connect(baseOut);
-      }
-      slowLfo(filter.frequency, Math.max(20, cfg.filter * 0.13), track.sound === "ocean" ? 8 : 21);
+      noiseGain.gain.value = Math.min(cfg.noise || 0.012, 0.018);
+      noise.connect(filter).connect(noiseGain).connect(baseOut);
+      slowLfo(filter.frequency, 18, 26);
       noise.start();
       nodes.push(noise, filter, noiseGain);
+    }
 
-      if (cfg.shimmer > 0) {
-        [2.5, 3.01, 4.02].forEach((ratio, idx) => {
-          const shimmer = ctx.createOscillator();
-          const shGain = ctx.createGain();
-          const shFilter = ctx.createBiquadFilter();
-          shimmer.type = "sine";
-          shimmer.frequency.value = cfg.base * ratio;
-          shFilter.type = "lowpass";
-          shFilter.frequency.value = 1700 + idx * 430;
-          shGain.gain.value = cfg.shimmer / (idx + 1);
-          shimmer.connect(shFilter).connect(shGain).connect(baseOut);
-          slowLfo(shGain.gain, cfg.shimmer * 0.25, 29 + idx * 8);
-          shimmer.start(ctx.currentTime + idx * 0.4);
-          nodes.push(shimmer, shGain, shFilter);
-        });
+    function buildTrack(track) {
+      if (track?.sound === "mp3" || track?.src || track?.srcs) {
+        buildMediaTrack(track);
+        return;
       }
+      buildGeneratedTrack(track);
     }
 
     function play() {
