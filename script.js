@@ -94,7 +94,7 @@ const Zenora = (() => {
     },
     {
       id: "flutehypnotique",
-      title: { fr: "Flûte hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" },
+      title: { fr: "Flute hypnotique", en: "Hypnotic flute", nl: "Hypnotische fluit" },
       duration: "7:34",
       category: "sounds",
       icon: "≋",
